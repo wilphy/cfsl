@@ -1,0 +1,25 @@
+/* pages/classic/classic.wxss */
+
+.container{
+  height: 400px;
+  background-color: #aaa;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: flex-end; */
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.chunk{
+  width: 150px;
+  height: 100px;
+}
+.color1{
+  background-color: #afa;
+}
+.color2{
+  background-color: #faa;
+}
+.color3{
+  background-color: #aaf;
+}
