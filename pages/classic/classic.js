@@ -1,7 +1,12 @@
 import {
-  ClassicModule
+  ClassicModel
 } from '../../modules/classic.js'
-let classic = new ClassicModule()
+import {
+  LikeModel
+} from '../../modules/like.js'
+
+let classicModel = new ClassicModel()
+let likeModel = new LikeModel()
 
 Page({
 
@@ -17,15 +22,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    classic.getLatest((res) => {
+    classicModel.getLatest((res) => {
       this.setData({
         classic: res
       })
     })
   },
-  
-  onLike: (event) => {
-    console.log(event)
+
+  onLike: function(event) {
+    const behavior = event.detail.behavior
+    likeModel.like(behavior, this.data.classic.id,
+      this.data.classic.type)
   },
 
   /**
