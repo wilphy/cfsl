@@ -1,1 +1,2 @@
-<w-like like="{{classic.like_status}}" count="{{classic.fav_nums}}" />
+<w-like bind:like="onLike" like="{{classic.like_status}}" count="{{classic.fav_nums}}" />
+<w-movie img="{{classic.image}}" content="{{classic.content}}" />
