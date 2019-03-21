@@ -3,7 +3,9 @@
     "pages/classic/classic",
     "components/like/index",
     "components/classic/movie/index",
-    "components/epsoide/index"
+    "components/epsoide/index",
+    "components/navi/index",
+    "components/classic/music/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

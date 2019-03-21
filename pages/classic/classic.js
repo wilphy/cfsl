@@ -15,7 +15,8 @@ Page({
    */
   data: {
     classic: null,
-    test: 1
+    latest: true,
+    first: false
   },
 
   /**
@@ -33,6 +34,14 @@ Page({
     const behavior = event.detail.behavior
     likeModel.like(behavior, this.data.classic.id,
       this.data.classic.type)
+  },
+
+  onNext: function() {
+
+  },
+
+  onPrevious: function() {
+
   },
 
   /**
