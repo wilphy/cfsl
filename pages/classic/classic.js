@@ -16,7 +16,9 @@ Page({
   data: {
     classic: null,
     latest: true,
-    first: false
+    first: false,
+    likeCount: 0,
+    likeStatus: false
   },
 
   /**
@@ -24,8 +26,13 @@ Page({
    */
   onLoad: function(options) {
     classicModel.getLatest((res) => {
+      //没有必要再多发一次like的http请求
+      //this._getLikeStatus(res.id, res.type)
+
       this.setData({
-        classic: res
+        classic: res,
+        likeCount: res.fav_nums,
+        like_status: res.like_status
       })
     })
   },
@@ -47,6 +54,7 @@ Page({
   _updateClassic: function(nextOrPrevious) {
     const index = this.data.classic.index
     classicModel.getClassic(index, nextOrPrevious, (res) => {
+      this._getLikeStatus(res.id, res.type)
       this.setData({
         classic: res,
         latest: classicModel.isLatest(res.index),
@@ -55,5 +63,15 @@ Page({
       console.log(this.data.latest)
       console.log(this.data.first)
     })
+  },
+
+  _getLikeStatus: function(artID, category) {
+    likeModel.getClassicLikeStatus(artID, category, (res) => {
+      this.setData({
+        likeCount: res.fav_nums,
+        likeStatus: res.like_status
+      })
+    })
   }
+
 })

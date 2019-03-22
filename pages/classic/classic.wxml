@@ -1,7 +1,7 @@
 <view class="container">
   <view class="header">
     <w-epsoide class="epsoide" index="{{classic.index}}"></w-epsoide>
-    <w-like class="like" bind:like="onLike" like="{{classic.like_status}}" count="{{classic.fav_nums}}" />
+    <w-like class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
   </view>
   <w-movie img="{{classic.image}}" content="{{classic.content}}" />
   <w-navi bind:left="onNext" bind:right="onPrevious" title="{{classic.title}}" first="{{first}}" latest="{{latest}}" class="navi" />
