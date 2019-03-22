@@ -26,13 +26,11 @@ Page({
    */
   onLoad: function(options) {
     classicModel.getLatest((res) => {
-      //没有必要再多发一次like的http请求
-      //this._getLikeStatus(res.id, res.type)
-
+      // this._getLikeStatus(res.id, res.type) //没有必要再多发一次like的http请求
       this.setData({
         classic: res,
         likeCount: res.fav_nums,
-        like_status: res.like_status
+        likeStatus: res.like_status
       })
     })
   },
