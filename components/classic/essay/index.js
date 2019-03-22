@@ -1,4 +1,4 @@
-import { classicBeh } from '../classic-beh.js'
+import {classicBeh} from '../classic-beh.js'
 
 Component({
 

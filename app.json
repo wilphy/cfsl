@@ -5,7 +5,8 @@
     "components/classic/movie/index",
     "components/epsoide/index",
     "components/navi/index",
-    "components/classic/music/index"
+    "components/classic/music/index",
+    "components/classic/essay/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
