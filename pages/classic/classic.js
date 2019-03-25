@@ -58,8 +58,6 @@ Page({
         latest: classicModel.isLatest(res.index),
         first: classicModel.isFirst(res.index)
       })
-      console.log(this.data.latest)
-      console.log(this.data.first)
     })
   },
 
@@ -71,5 +69,4 @@ Page({
       })
     })
   }
-
 })
