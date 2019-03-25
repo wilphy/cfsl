@@ -1,6 +1,6 @@
 <view class="container">
   <view class="header">
-    <w-epsoide class="epsoide" index="{{classic.index}}"></w-epsoide>
+    <w-episode class="episode" index="{{classic.index}}"></w-episode>
     <w-like class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
   </view>
   <w-movie hidden="{{classic.type!=100}}" img="{{classic.image}}" content="{{classic.content}}" />

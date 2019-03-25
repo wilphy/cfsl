@@ -4,7 +4,7 @@
     "w-movie": "/components/classic/movie/index",
     "w-music": "/components/classic/music/index",
     "w-essay": "/components/classic/essay/index",
-    "w-epsoide": "/components/epsoide/index",
+    "w-episode": "/components/episode/index",
     "w-navi": "/components/navi/index"
   }
 }

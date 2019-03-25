@@ -3,7 +3,7 @@
     "pages/classic/classic",
     "components/like/index",
     "components/classic/movie/index",
-    "components/epsoide/index",
+    "components/episode/index",
     "components/navi/index",
     "components/classic/music/index",
     "components/classic/essay/index",
