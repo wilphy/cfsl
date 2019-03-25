@@ -6,7 +6,9 @@
     "components/epsoide/index",
     "components/navi/index",
     "components/classic/music/index",
-    "components/classic/essay/index"
+    "components/classic/essay/index",
+    "pages/book/book",
+    "pages/my/my"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
@@ -15,5 +17,27 @@
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light",
     "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/classic/classic",
+        "selectedIconPath": "/images/tab/classic@highlight.png",
+        "text": "流行",
+        "iconPath": "/images/tab/classic.png"
+      },
+      {
+        "pagePath": "pages/book/book",
+        "selectedIconPath": "/images/tab/book@highlight.png",
+        "iconPath": "/images/tab/book.png",
+        "text": "书籍"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "selectedIconPath": "/images/tab/my@highlight.png",
+        "iconPath": "/images/tab/my.png",
+        "text": "喜欢"
+      }
+    ]
   }
 }
