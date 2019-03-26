@@ -8,7 +8,8 @@
     "components/classic/music/index",
     "components/classic/essay/index",
     "pages/book/book",
-    "pages/my/my"
+    "pages/my/my",
+    "components/book/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
