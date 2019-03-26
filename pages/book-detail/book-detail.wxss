@@ -1,0 +1,89 @@
+.container {
+  width: 100%;
+  background-color: #e5e5e5;
+}
+
+.head {
+  background-color: #fff;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  color: #2f2f2f;
+  margin-top: 20rpx;
+  font-size: 38rpx;
+  font-weight: 600;
+}
+
+.author {
+  font-size: 28rpx;
+  color: #999;
+  /* margin-bottom: 30rpx; */
+}
+
+.head image {
+  width: 200rpx;
+  height: 300rpx;
+  box-shadow: 2px 2px 3px #e3e3e3;
+}
+
+.sub-container {
+  width: 690rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30rpx;
+  background-color: #fff;
+  padding: 30rpx;
+}
+
+.headline {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #2f2f2f;
+  margin-bottom: 20rpx;
+}
+
+.comment-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.comment-container w-tag {
+  margin-right: 15rpx;
+  margin-bottom: 10rpx;
+}
+
+/* 无效, 无法修改自定义组件的样式 */
+/* .comment-container w-tag:nth-child(1) {
+  background-color: #ff0
+} */
+
+
+.comment-container w-tag:nth-child(n) > view {
+  background-color: #f99;
+}
+
+.comment-container w-tag:nth-child(2n) > view {
+  background-color: #99f;
+}
+
+.comment-container w-tag:nth-child(3n) > view {
+  background-color: #ff6;
+}
+
+.content {
+  text-indent: 58rpx;
+  font-weight: 500;
+}
+
+.num {
+  margin-left: 10rpx;
+  font-size: 22rpx;
+  color: #aaa;
+}

@@ -1,0 +1,11 @@
+.container {
+  padding: 4rpx 12rpx;
+  background-color: #d5d5d5;
+  color: #666;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+}

@@ -9,7 +9,9 @@
     "components/classic/essay/index",
     "pages/book/book",
     "pages/my/my",
-    "components/book/index"
+    "components/book/index",
+    "pages/book-detail/book-detail",
+    "components/tag/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
