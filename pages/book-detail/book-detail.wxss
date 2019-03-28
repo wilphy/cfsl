@@ -60,10 +60,10 @@
 }
 
 /* 无效, 无法修改自定义组件的样式 */
+
 /* .comment-container w-tag:nth-child(1) {
   background-color: #ff0
 } */
-
 
 .comment-container w-tag:nth-child(n) > view {
   background-color: #f99;
@@ -86,4 +86,24 @@
   margin-left: 10rpx;
   font-size: 22rpx;
   color: #aaa;
+}
+
+.detail-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 100rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.description {
+  color: #999;
+  margin-right: 30rpx;
 }
