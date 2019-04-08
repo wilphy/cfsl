@@ -12,7 +12,8 @@
     "components/book/index",
     "pages/book-detail/book-detail",
     "components/tag/index",
-    "components/image-button/index"
+    "components/image-button/index",
+    "components/mask/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
