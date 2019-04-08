@@ -10,7 +10,7 @@
   <view class="sub-container">
     <text class="headline">短评</text>
     <view class="comment-container">
-      <block wx:for="{{comments}}" wx:key="">
+      <block wx:for="{{util.limit(comments, 15)}}" wx:key="">
         <w-tag text="{{item.content}}">
           <text slot="after">{{'+' + item.nums}}</text>
         </w-tag>
@@ -42,5 +42,11 @@
         <text>{{book.binding}}</text>
       </view>
     </view>
+  </view>
+</view>
+
+<view class="post-container">
+  <view class="post-fake">
+    <text>输入短评</text>
   </view>
 </view>
