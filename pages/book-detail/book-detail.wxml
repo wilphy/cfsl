@@ -62,12 +62,12 @@
   </view>
   <view class="comment-container">
     <block wx:for="{{util.limit(comments, 3)}}" wx:key="">
-      <w-tag text="{{item.content}}">
+      <w-tag bind:tap="onPost" text="{{item.content}}">
         <text slot="after">{{'+' + item.nums}}</text>
       </w-tag>
     </block>
+    <input bindconfirm="onPost" class="post" placeholder='短评最多12个字'></input>
   </view>
-  <input bindconfirm="onPost" class="post" placeholder='短评最多12个字'></input>
 </view>
 
 <w-mask wx:if="{{posting}}" />
