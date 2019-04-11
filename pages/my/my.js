@@ -1,4 +1,13 @@
-// pages/my/my.js
+import {
+  ClassicModel
+} from '../../models/classic.js'
+import {
+  BookModel
+} from '../../models/book.js'
+
+const classicModel = new ClassicModel()
+const bookModel = new BookModel()
+
 Page({
 
   /**
@@ -7,19 +16,36 @@ Page({
   data: {
     authorized: false,
     userInfo: null,
-    bookCount: 888
+    bookCount: 0,
+    classics: null
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
+  onShow(options) {
     this.userAuthorized()
+    this.getMyBookCount()
+    this.getMyFavor()
     // wx.getUserInfo({
-    //   success: data => {
+    //   success:data=>{
     //     console.log(data)
     //   }
     // })
+  },
+
+  getMyFavor() {
+    classicModel.getMyFavor(res => {
+      this.setData({
+        classics: res
+      })
+    })
+  },
+
+  getMyBookCount() {
+    bookModel.getMyBookCount()
+      .then(res => {
+        this.setData({
+          bookCount: res.count
+        })
+      })
   },
 
   userAuthorized() {

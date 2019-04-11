@@ -11,7 +11,7 @@ class BookModel extends HTTP {
     })
   }
 
-  getMybookCount() {
+  getMyBookCount() {
     return this.request({
       url: '/book/favor/count'
     })
