@@ -5,7 +5,5 @@
 ![Image Text](https://github.com/wilphy/cfsl/blob/master/screenshot/home.png)
 ![Image Text](https://github.com/wilphy/cfsl/blob/master/screenshot/home-music.png)
 ![Image Text](https://github.com/wilphy/cfsl/blob/master/screenshot/book.png)
-![Image Text](https://github.com/wilphy/cfsl/blob/master/screenshot/detail1.png)
-![Image Text](https://github.com/wilphy/cfsl/blob/master/screenshot/detail2.png)
 ![Image Text](https://github.com/wilphy/cfsl/blob/master/screenshot/detail3.png)
 ![Image Text](https://github.com/wilphy/cfsl/blob/master/screenshot/my.png)
