@@ -14,7 +14,8 @@
     "components/tag/index",
     "components/image-button/index",
     "components/mask/index",
-    "components/preview/index"
+    "components/preview/index",
+    "components/search/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
