@@ -60,3 +60,47 @@
   width: 500rpx;
   font-size: 28rpx;
 }
+
+.history {
+  width: 690rpx;
+  margin: 40rpx 0 20rpx 0;
+  display: flex;
+  font-size: 28rpx;
+  margin-top: 160rpx;
+  flex-direction: column;
+}
+
+.hot-search {
+  margin-top: 70rpx;
+}
+
+.title {
+  line-height: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.chunk {
+  height: 30rpx;
+  width: 10rpx;
+  background-color: #000;
+  display: inline-block;
+  margin-right: 20rpx;
+}
+
+.tags {
+  /* padding-left:15px; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 24rpx;
+  padding-left: 30rpx;
+  width: 630rpx;
+  background-color: #fff;
+}
+
+.tags w-tag {
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
