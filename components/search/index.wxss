@@ -104,3 +104,17 @@
   margin-right: 20rpx;
   margin-bottom: 20rpx;
 }
+
+.books-container w-book {
+  margin-bottom: 25rpx;
+}
+
+.books-container {
+  width: 570rpx;
+  margin-top: 100rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 90rpx 0 90rpx;
+  justify-content: space-between;
+}

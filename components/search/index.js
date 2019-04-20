@@ -2,7 +2,12 @@ import {
   KeywordModel
 } from '../../models/keyword.js'
 
+import {
+  BookModel
+} from '../../models/book.js'
+
 const keywordModel = new KeywordModel()
+const bookModel = new BookModel()
 
 Component({
   /**
@@ -14,19 +19,21 @@ Component({
    * 组件的初始数据
    */
   data: {
+    searching: false,
     historyWord: [],
-    hotWords: []
+    hotWords: [],
+    searchResult: []
   },
 
   attached() {
-    const historyWords = keywordModel.getHistory()
-    const hotWords = keywordModel.getHot()
+    // const historyWords = keywordModel.getHistory()
+    // const hotWords = keywordModel.getHot()
     this.setData({
-      // historyWords: keywordModel.getHistory()
-      historyWords
+      historyWords: keywordModel.getHistory()
+      // historyWords
     })
 
-    hotWords.then((res) => {
+    keywordModel.getHot().then((res) => {
       this.setData({
         hotWords: res.hot
       })
@@ -41,8 +48,17 @@ Component({
       this.triggerEvent('cancel', {}, {})
     },
     onConfirm(event) {
-      const word = event.detail.value
-      keywordModel.addToHistory(word)
+      this.setData({
+        searching: true
+      })
+
+      const q = event.detail.value
+      bookModel.search(0, q).then(res => {
+        this.setData({
+          searchResult: res.books
+        })
+        keywordModel.addToHistory(q)
+      })
     }
   }
 })
