@@ -44,15 +44,23 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    onDelete(event) {
+      this.setData({
+        searching: false
+      })
+    },
+
     onCancel(event) {
       this.triggerEvent('cancel', {}, {})
     },
+
     onConfirm(event) {
       this.setData({
         searching: true
       })
+      console.log(event.detail.text)
 
-      const q = event.detail.value
+      const q = event.detail.value || event.detail.text
       bookModel.search(0, q).then(res => {
         this.setData({
           searchResult: res.books
