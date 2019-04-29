@@ -13,7 +13,12 @@ Component({
   /**
    * 组件的属性列表
    */
-  properties: {},
+  properties: {
+    more: {
+      type: String,
+      observer: '_load_more'
+    }
+  },
 
   /**
    * 组件的初始数据
@@ -45,6 +50,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    _load_more(){
+      console.log(123123)
+    },
+
     onDelete(event) {
       this.setData({
         searching: false

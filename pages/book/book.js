@@ -2,6 +2,10 @@ import {
   BookModel
 } from '../../models/book.js'
 
+import {
+  random
+} from '../../util/common.js'
+
 const bookModel = new BookModel()
 
 Page({
@@ -11,7 +15,8 @@ Page({
    */
   data: {
     books: [],
-    searching: false
+    searching: false,
+    more: ''
   },
 
   /**
@@ -36,6 +41,12 @@ Page({
   onCancel(event) {
     this.setData({
       searching: false
+    })
+  },
+
+  onReachBottom() {
+    this.setData({
+      more: random(16)
     })
   }
 
