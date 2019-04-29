@@ -52,6 +52,13 @@ Component({
   methods: {
     _load_more(){
       console.log(123123)
+      const length = this.data.searchResult.length
+      bookModel.search(length, this.data.q).then(res => {
+        const tempResult = this.data.searchResult.concat(res.books)
+        this.setData({
+          searchResult: tempResult
+        })
+      })
     },
 
     onDelete(event) {
