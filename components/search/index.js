@@ -28,7 +28,8 @@ Component({
     historyWord: [],
     hotWords: [],
     searchResult: [],
-    q: ''
+    q: '',
+    loading: false
   },
 
   attached() {
@@ -52,11 +53,19 @@ Component({
   methods: {
     _load_more() {
       console.log(123123)
+      if (!this.data.q) {
+        return
+      }
+      if (this.data.loading) {
+        return
+      }
       const length = this.data.searchResult.length
+      this.data.loading = true //锁，资源已全部加载完，避免重复请求加载
       bookModel.search(length, this.data.q).then(res => {
         const tempResult = this.data.searchResult.concat(res.books)
         this.setData({
-          searchResult: tempResult
+          searchResult: tempResult,
+          loading: false // 解锁
         })
       })
     },
