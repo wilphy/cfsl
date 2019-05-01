@@ -50,7 +50,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    _load_more(){
+    _load_more() {
       console.log(123123)
       const length = this.data.searchResult.length
       bookModel.search(length, this.data.q).then(res => {
@@ -75,7 +75,7 @@ Component({
       this.setData({
         searching: true
       })
-      
+
       const q = event.detail.value || event.detail.text
       bookModel.search(0, q).then(res => {
         this.setData({
