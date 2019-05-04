@@ -86,6 +86,9 @@ Component({
       })
 
       const q = event.detail.value || event.detail.text
+      if (!q) {
+        return
+      }
       bookModel.search(0, q).then(res => {
         this.setData({
           searchResult: res.books,
