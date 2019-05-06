@@ -16,7 +16,7 @@ Component({
   properties: {
     more: {
       type: String,
-      observer: '_load_more'
+      observer: 'loadMore'
     }
   },
 
@@ -51,8 +51,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    _load_more() {
-      console.log(123123)
+    loadMore() {
       if (!this.data.q) {
         return
       }
@@ -81,14 +80,8 @@ Component({
     },
 
     onConfirm(event) {
-      this.setData({
-        searching: true
-      })
-
+      this._showResult()
       const q = event.detail.value || event.detail.text
-      if (!q) {
-        return
-      }
       bookModel.search(0, q).then(res => {
         this.setData({
           searchResult: res.books,
@@ -96,6 +89,13 @@ Component({
         })
         keywordModel.addToHistory(q)
       })
+    },
+
+    _showResult(){
+      this.setData({
+        searching: true
+      })
     }
+
   }
 })
