@@ -80,6 +80,7 @@ Component({
     },
 
     onConfirm(event) {
+      wx.showLoading()
       this._showResult()
       const q = event.detail.value || event.detail.text
       bookModel.search(0, q).then(res => {
@@ -88,10 +89,11 @@ Component({
           q,
         })
         keywordModel.addToHistory(q)
+        wx.hideLoading()
       })
     },
 
-    _showResult(){
+    _showResult() {
       this.setData({
         searching: true
       })
