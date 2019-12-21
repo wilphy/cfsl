@@ -1,0 +1,12 @@
+.container {
+  padding: 4rpx 12rpx;
+  background-color: #dde;
+  color: #666;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+}
