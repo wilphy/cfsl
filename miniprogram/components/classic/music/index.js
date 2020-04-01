@@ -14,8 +14,12 @@ Component({
     playSrc: 'images/player@play.png',
   },
 
+  attached: function (event) {
+    this._recoverStatus()
+  },
+
   detached: function (event) {
-    mMgr.stop()
+    // mMgr.stop()
   },
 
   properties: {
@@ -37,6 +41,20 @@ Component({
           playing: false
         })
         mMgr.pause()
+      }
+    },
+
+    _recoverStatus: function () {
+      if (mMgr.paused) {
+        this.setData({
+          playing: false
+        })
+        return
+      }
+      if (mMgr.src == this.properties.src) {
+        this.setData({
+          playing: true
+        })
       }
     }
   }
