@@ -31,12 +31,13 @@ Component({
 
       count = like ? count - 1 : count + 1
       this.setData({
-        count: count,
+        count,
         like: !like
       })
 
-      //激活
-      let behavior = this.properties.like?'like':'cancel'
+      // triggerEvent激活自定义事件
+      // 表示用户点赞/取消点赞
+      let behavior = this.properties.like ? 'like' : 'cancel'
       this.triggerEvent('like', {
         behavior: behavior
       }, {})

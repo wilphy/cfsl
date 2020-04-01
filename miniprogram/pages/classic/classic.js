@@ -24,7 +24,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     classicModel.getLatest((res) => {
       // this._getLikeStatus(res.id, res.type) //没有必要再多发一次like的http请求
       this.setData({
@@ -35,21 +35,21 @@ Page({
     })
   },
 
-  onLike: function(event) {
+  onLike: function (event) {
     const behavior = event.detail.behavior
     likeModel.like(behavior, this.data.classic.id,
       this.data.classic.type)
   },
 
-  onNext: function(event) {
+  onNext: function (event) {
     this._updateClassic('next')
   },
 
-  onPrevious: function(event) {
+  onPrevious: function (event) {
     this._updateClassic('previous')
   },
 
-  _updateClassic: function(nextOrPrevious) {
+  _updateClassic: function (nextOrPrevious) {
     const index = this.data.classic.index
     classicModel.getClassic(index, nextOrPrevious, (res) => {
       this._getLikeStatus(res.id, res.type)
@@ -61,7 +61,7 @@ Page({
     })
   },
 
-  _getLikeStatus: function(artID, category) {
+  _getLikeStatus: function (artID, category) {
     likeModel.getClassicLikeStatus(artID, category, (res) => {
       this.setData({
         likeCount: res.fav_nums,

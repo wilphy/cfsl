@@ -27,7 +27,7 @@
       </view>
       <view class='tags'>
         <block wx:for="{{hotWords}}" wx:key="*this">
-          <w-tag bind:tapping="onConfirm" text="{{item}}" />
+          <w-tag class="w-tag" bind:tapping="onConfirm" text="{{item}}" />
         </block>
       </view>
     </view>

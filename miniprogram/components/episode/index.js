@@ -6,6 +6,7 @@ Component({
         let val = newVal < 10 ? '0' + newVal : newVal
         console.log(val)
         this.setData({
+          // 直接更改index的值将造成无限递归，内存泄漏，改用_index代替
           _index: val
         })
       }
@@ -27,7 +28,7 @@ Component({
     let month = date.getMonth()
 
     this.setData({
-      year: year,
+      year,
       month: this.data.months[month]
     })
   }

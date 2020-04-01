@@ -100,12 +100,12 @@
   background-color: #fff;
 }
 
-.tags w-tag {
+.tags .w-tag {
   margin-right: 20rpx;
   margin-bottom: 20rpx;
 }
 
-.books-container w-book {
+.books-container .book {
   margin-bottom: 25rpx;
 }
 

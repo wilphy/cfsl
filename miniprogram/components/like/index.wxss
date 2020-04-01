@@ -1,16 +1,16 @@
-.container{
+.container {
   display: inline-flex;
   flex-direction: row;
   padding: 10rpx;
   width: 90rpx;
 }
 
-.container image{
+.img {
   width: 32rpx;
   height: 28rpx;
 }
 
-.container text{
+.text {
   font-weight: 200;
   font-size: 24rpx;
   line-height: 24rpx;
