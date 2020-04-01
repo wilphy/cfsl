@@ -13,12 +13,18 @@ Component({
     pauseSrc: 'images/player@pause.png',
     playSrc: 'images/player@play.png',
   },
+
+  detached: function (event) {
+    mMgr.stop()
+  },
+
   properties: {
     src: String,
     title: String
   },
+
   methods: {
-    onPlay: function(event) {
+    onPlay: function (event) {
       //切换播放/暂停图标
       if (!this.data.playing) {
         this.setData({
