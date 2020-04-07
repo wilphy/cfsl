@@ -51,6 +51,10 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 2,
 			"list": [
@@ -58,7 +62,7 @@
 					"id": 0,
 					"name": "book-detail",
 					"pathName": "pages/book-detail/book-detail",
-					"query": "bid=7",
+					"query": "bid=1398",
 					"scene": null
 				},
 				{
@@ -72,6 +76,7 @@
 					"id": -1,
 					"name": "book",
 					"pathName": "pages/book/book",
+					"query": "",
 					"scene": null
 				}
 			]

@@ -1,7 +1,9 @@
 Component({
   options: {
-    multipleSlots: true,
+    multipleSlots: true, //启用插槽
   },
+
+  externalClasses: ['tag-class'],
 
   properties: {
     text: String

@@ -59,21 +59,23 @@
   margin-bottom: 10rpx;
 }
 
-/* 无效, 无法修改自定义组件的样式 */
+/* 无效, 无法直接修改自定义组件的样式 */
 
 /* .comment-container w-tag:nth-child(1) {
   background-color: #ff0
 } */
 
-.comment-container w-tag:nth-child(n) > view {
+/* 可以通过修改自定义组件的内部标签的样式 */
+
+.comment-container > w-tag:nth-child(n) > view {
   background-color: #f99;
 }
 
-.comment-container w-tag:nth-child(2n) > view {
+.comment-container > w-tag:nth-child(2n) > view {
   background-color: #99f;
 }
 
-.comment-container w-tag:nth-child(3n) > view {
+.comment-container > w-tag:nth-child(3n) > view {
   background-color: #ff6;
 }
 
@@ -85,7 +87,7 @@
 .num {
   margin-left: 10rpx;
   font-size: 22rpx;
-  color: #aaa;
+  color: #fff;
 }
 
 .detail-container {
@@ -193,4 +195,8 @@
   background-color: #f5f5f5;
   border-radius: 15px;
   padding-left: 25rpx;
+}
+
+.shadow {
+  color: #999;
 }

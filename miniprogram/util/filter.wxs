@@ -1,5 +1,7 @@
-// 不能使用ES6的const
-var format = function(text) {
+// 不支持ES6的语法
+
+var format = function (text) {
+  // 防止数据初始化的时候text为undefined的错误
   if (!text) {
     return
   }
@@ -7,7 +9,7 @@ var format = function(text) {
   return text.replace(reg, '\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;')
 }
 
-var limit = function(array, length) {
+var limit = function (array, length) {
   return array.slice(0, length)
 }
 
