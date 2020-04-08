@@ -29,7 +29,7 @@ Component({
     hotWords: [],
     searchResult: [],
     q: '',
-    loading: false
+    loading: false // 锁
   },
 
   attached() {
@@ -55,24 +55,37 @@ Component({
       if (!this.data.q) {
         return
       }
-      if (this.data.loading) {
+      if (this._isLocked()) {
         return
       }
       const length = this.data.searchResult.length
-      this.data.loading = true //锁，资源已全部加载完，避免重复请求加载
+
+      // 数据不需要更新到wxml中，所以直接赋值
+      this._locked() // 上锁，资源已全部加载完，避免重复请求加载
+
       bookModel.search(length, this.data.q).then(res => {
         const tempResult = this.data.searchResult.concat(res.books)
         this.setData({
           searchResult: tempResult,
-          loading: false // 解锁
         })
+        this._unLocked()
       })
     },
 
+    _isLocked() {
+      return this.data.loading ? true : false
+    },
+
+    _locked() {
+      this.data.loading = true
+    },
+
+    _unLocked() {
+      this.data.loading = false
+    },
+
     onDelete(event) {
-      this.setData({
-        searching: false
-      })
+      this._closeResult()
     },
 
     onCancel(event) {
@@ -97,7 +110,13 @@ Component({
       this.setData({
         searching: true
       })
-    }
+    },
 
+    _closeResult() {
+      this.setData({
+        searching: false
+      })
+    }
+    
   }
 })
