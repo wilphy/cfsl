@@ -29,7 +29,8 @@ Component({
     hotWords: [],
     searchResult: [],
     q: '',
-    loading: false // 锁
+    loading: false, // 锁
+    loadingCenter: false // 初始化加载
   },
 
   attached() {
@@ -69,6 +70,8 @@ Component({
           searchResult: tempResult,
         })
         this._unLocked()
+      }, () => {
+        this._unLocked()
       })
     },
 
@@ -77,11 +80,15 @@ Component({
     },
 
     _locked() {
-      this.data.loading = true
+      this.setData({
+        loading: true
+      })
     },
 
     _unLocked() {
-      this.data.loading = false
+      this.setData({
+        loading: false
+      })
     },
 
     onDelete(event) {
@@ -93,8 +100,8 @@ Component({
     },
 
     onConfirm(event) {
-      wx.showLoading()
       this._showResult()
+      this._showLoadingCenter()
       const q = event.detail.value || event.detail.text
       bookModel.search(0, q).then(res => {
         this.setData({
@@ -102,7 +109,19 @@ Component({
           q,
         })
         keywordModel.addToHistory(q)
-        wx.hideLoading()
+        this._hideLoadingCenter()
+      })
+    },
+
+    _showLoadingCenter() {
+      this.setData({
+        loadingCenter: true
+      })
+    },
+
+    _hideLoadingCenter() {
+      this.setData({
+        loadingCenter: false
       })
     },
 
@@ -117,6 +136,6 @@ Component({
         searching: false
       })
     }
-    
+
   }
 })
