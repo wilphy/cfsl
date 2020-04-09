@@ -104,6 +104,12 @@ Component({
       this._showLoadingCenter()
       const q = event.detail.value || event.detail.text
       bookModel.search(0, q).then(res => {
+        if (res.total == 0) {
+          wx.showToast({
+            title: '搜索结果为空',
+            icon: 'none'
+          })
+        }
         this.setData({
           searchResult: res.books,
           q,
@@ -133,7 +139,8 @@ Component({
 
     _closeResult() {
       this.setData({
-        searching: false
+        searching: false,
+        q: ''
       })
     }
 

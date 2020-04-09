@@ -4,18 +4,16 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    book: Object,
-    showLike: {
-      type: Boolean,
-      value: true
-    }
+    book: Object
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-
+    title: String,
+    author: String,
+    img: String
   },
 
   /**

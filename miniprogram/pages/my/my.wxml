@@ -1,32 +1,32 @@
 <view class="container">
-  <image src="/images/my/my@bg.png" class="bg"></image>
-  <!-- <open-data type="userAvatarUrl" class="avatar avatar-position"></open-data> -->
-  <w-button wx:if="{{!authorized}}" open-type="getUserInfo" class="avatar-position" bind:getuserinfo="onGetUserInfo">
-    <image slot="img" class="avatar" src="/images/my/my.png" />
-  </w-button>
-  <view wx:if="{{authorized}}" class="avatar-container avatar-position">
-    <image src="{{userInfo.avatarUrl}}" class="avatar" />
-    <text>{{userInfo.nickName}}</text>
-  </view>
+	<image src="/images/my/my@bg.png" class="bg"></image>
+	<!-- <open-data type="userAvatarUrl" class="avatar avatar-position"></open-data> -->
+	<w-button wx:if="{{!authorized}}" open-type="getUserInfo" class="avatar-position" bind:getuserinfo="onGetUserInfo">
+		<image slot="img" class="avatar" src="/images/my/my.png" />
+	</w-button>
+	<view class="avatar-container avatar-position">
+		<image src="{{userInfo.avatarUrl}}" wx:if="{{hasUserInfo}}" class="avatar" />
+		<open-data wx:if="{{hasUserInfo}}" type="userNickName"></open-data>
+	</view>
 
-  <view class="about-container">
-    <view bind:tap="onJumpToAbout" class="about-us">
-      <image src="/images/my/about.png" />
-      <text class="description">About</text>
-    </view>
-    <view class="about-us">
-      <text class="book-num">{{bookCount}}</text>
-      <text class="description">喜欢的书</text>
-    </view>
-  </view>
+	<view class="about-container">
+		<view class="about-us">
+			<image src="/images/my/about.png" />
+			<text class="description">About</text>
+		</view>
+		<view class="about-us">
+			<text class="book-num">{{hasUserInfo ? myBooksCount : 0}}</text>
+			<text class="description">喜欢的书</text>
+		</view>
+	</view>
 
-  <view class="like-container">
-    <image class="headline" src="/images/my/like.png" />
-    <view class="preview-container">
-      <block wx:for="{{classics}}" wx:key="*this">
-        <w-preview bind:tapping="onJumpToDetail" class="preview" classic="{{item}}" />
-      </block>
-    </view>
-  </view>
+	<view wx:if="{{hasUserInfo}}" class="like-container">
+		<image class="headline" src="/images/my/like.png" />
+		<view class="preview-container">
+			<block wx:for="{{classics}}" wx:key="index">
+				<w-preview bind:tapping="onJumpToDetail" class="preview" classic="{{item}}" />
+			</block>
+		</view>
+	</view>
 
 </view>

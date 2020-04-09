@@ -14,16 +14,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    authorized: false,
+    hasUserInfo: true,
     userInfo: null,
-    bookCount: 0,
-    classics: null
+    myBooksCount: 0,
+    classics: []
   },
 
-  onShow(options) {
-    this.userAuthorized()
-    this.getMyBookCount()
+  onLoad: function (options) {
     this.getMyFavor()
+    this.hasGottenUserInfo()
+    this.getMyBookCount()
     // wx.getUserInfo({
     //   success:data=>{
     //     console.log(data)
@@ -39,38 +39,60 @@ Page({
     })
   },
 
+
   getMyBookCount() {
-    bookModel.getMyBookCount()
-      .then(res => {
-        this.setData({
-          bookCount: res.count
-        })
+    bookModel.getMyBookCount().then(res => {
+      this.setData({
+        myBooksCount: res.count
       })
+    })
+
   },
 
-  userAuthorized() {
+  hasGottenUserInfo: function () {
     wx.getSetting({
-      success: data => {
-        if (data.authSetting['scope.userInfo']) {
+      success: (res) => {
+        if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
-            success: data => {
+            success: (res) => {
               this.setData({
-                authorized: true,
-                userInfo: data.userInfo
+                hasUserInfo: true,
+                userInfo: res.userInfo
               })
             }
+          })
+        } else {
+          this.setData({
+            hasUserInfo: false
           })
         }
       }
     })
   },
 
-  onGetUserInfo(event) {
-    const userInfo = event.detail.userInfo
+  // userAuthorized() {
+  //   wx.getSetting({
+  //     success: data => {
+  //       if (data.authSetting['scope.userInfo']) {
+  //         wx.getUserInfo({
+  //           success: data => {
+  //             this.setData({
+  //               authorized: true,
+  //               userInfo: data.userInfo
+  //             })
+  //           }
+  //         })
+  //       }
+  //     }
+  //   })
+  // },
+
+  onGetUserInfo: function (event) {
+    let userInfo = event.detail.userInfo
     if (userInfo) {
       this.setData({
-        userInfo,
-        authorized: true
+        hasUserInfo: true,
+        userInfo: userInfo
       })
     }
   }
