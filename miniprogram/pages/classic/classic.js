@@ -25,14 +25,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    classicModel.getLatest((res) => {
+    wx.cloud.callFunction({
+      name: "getClassicLatest"
+    }).then((res) => {
+      console.log(res.result)
       // this._getLikeStatus(res.id, res.type) //没有必要再多发一次like的http请求
       this.setData({
-        classic: res,
-        likeCount: res.fav_nums,
-        likeStatus: res.like_status
+        classic: res.result,
+        likeCount: res.result.fav_nums,
+        likeStatus: res.result.like_status
       })
     })
+
+    // classicModel.getLatest((res) => {
+    //   // this._getLikeStatus(res.id, res.type) //没有必要再多发一次like的http请求
+    //   this.setData({
+    //     classic: res,
+    //     likeCount: res.fav_nums,
+    //     likeStatus: res.like_status
+    //   })
+    // })
   },
 
   onLike: function (event) {

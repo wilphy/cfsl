@@ -34,6 +34,7 @@
 	"isGameTourist": false,
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -76,6 +77,13 @@
 					"id": -1,
 					"name": "book",
 					"pathName": "pages/book/book",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "demo",
+					"pathName": "pages/demo/index",
 					"query": "",
 					"scene": null
 				}

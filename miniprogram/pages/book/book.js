@@ -22,14 +22,24 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-    bookModel.getHotList()
-      .then(res => {
-        this.setData({
-          books: res
-        })
-        console.log(res)
+  onLoad: function (options) {
+    // bookModel.getHotList()
+    //   .then(res => {
+    //     this.setData({
+    //       books: res
+    //     })
+    //     console.log(res)
+    //   })
+
+    wx.cloud.callFunction({
+      name: "getHotList"
+    }).then(res => {
+      console.log(res)
+      this.setData({
+        books: res.result
       })
+    })
+
   },
 
   onSearching(event) {
