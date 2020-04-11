@@ -32,9 +32,11 @@ Page({
     //   })
 
     wx.cloud.callFunction({
-      name: "getHotList"
+      name: "book",
+      data: {
+        $url: 'getHotList'
+      }
     }).then(res => {
-      console.log(res)
       this.setData({
         books: res.result
       })

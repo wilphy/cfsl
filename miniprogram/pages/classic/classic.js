@@ -26,9 +26,11 @@ Page({
    */
   onLoad: function (options) {
     wx.cloud.callFunction({
-      name: "getClassicLatest"
+      name: "classic",
+      data: {
+        $url: "getClassicLatest"
+      }
     }).then((res) => {
-      console.log(res.result)
       // this._getLikeStatus(res.id, res.type) //没有必要再多发一次like的http请求
       this.setData({
         classic: res.result,
